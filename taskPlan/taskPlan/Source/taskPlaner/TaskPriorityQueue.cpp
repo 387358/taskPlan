@@ -122,7 +122,7 @@ namespace taskPlanerNamespace
 					//string currentTaskName(tempQueueStruct.taskQueue.begin()->second);	
 					//bool cruuentInterruptFlag(tempQueueStruct.interruptFlag.begin()->second);
 					
-					TaskIpc::sendResultMgr("TaskPlanner", ApState::AP_FAIL);	// abort current task
+					TaskIpc::sendResultMgr("TaskPriorityQueue", ApState::AP_FAIL);	// abort current task
 					cout << "The current task is aborted by higher priority task" << endl;
 					
 					pauseTaskQueue();
