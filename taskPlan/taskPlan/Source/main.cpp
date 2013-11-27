@@ -25,16 +25,16 @@ int main(int argc, char *argv[])
 		switch(input)
 		{
 		case 1:
-			tq.queueInsert(10, "Welcome", false);
+			tq.queueInsert(10, "Welcome", true);
 			break;
 		case 2:
-			tq.queueInsert(10, "Wander", false);
+			tq.queueInsert(5, "Wander", true);
 			break;
 		case 3:
-			tq.queueInsert(20, "Sign", false);
+			tq.queueInsert(20, "TakeWater", true);
 			break;
 		case 4:
-			tq.queueInsert(10, "TakeWater", false);
+			tq.queueInsert(10, "Sign", true);
 			break;
 		default:
 			break;

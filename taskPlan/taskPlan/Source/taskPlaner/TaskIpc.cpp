@@ -47,7 +47,7 @@ namespace taskPlanerNamespace
 			connectFlag = 1;	// set connectFlag
 			init_comm();
 			connect_to_server("localhost");
-			publish( ACTION_APSTATE, TOTAL_MSG_NUM);
+			publish( ACTION_APSTATE, RESULT_APSTATE, TOTAL_MSG_NUM);
 			subscribe( RESULT_APSTATE, TOTAL_MSG_NUM );
 			listen();
 		}

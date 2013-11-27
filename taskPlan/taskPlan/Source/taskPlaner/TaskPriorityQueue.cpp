@@ -117,10 +117,22 @@ namespace taskPlanerNamespace
 				}
 				else		// if the executing task can be interrupt
 				{
-					abortCurrentTaskAndStopThread();
-					push(priority, taskName, isInterrupt);			// and insert new higher priority task, but did't pop originial task
-					startThread();
+					//abortCurrentTaskAndStopThread();
+					//int currentPriority(tempQueueStruct.taskQueue.begin()->first);				// save current task state
+					//string currentTaskName(tempQueueStruct.taskQueue.begin()->second);	
+					//bool cruuentInterruptFlag(tempQueueStruct.interruptFlag.begin()->second);
+					
+					TaskIpc::sendResultMgr("TaskPlanner", ApState::AP_FAIL);	// abort current task
+					cout << "The current task is aborted by higher priority task" << endl;
+					
+					pauseTaskQueue();
+					push(priority, taskName, isInterrupt);	// and insert new higher priority task, but did't pop originial task
+					push(priority, taskName, isInterrupt);	// insert two times, because one will be pop after execute task
+
+					//push(currentPriority, currentTaskName, cruuentInterruptFlag);
+					//startThread();
 					cout << "Insert the " << taskName << " before the current task" << endl;
+					resumeTaskQueue();
 				}
 			}
 			else			// insert priority smaller than the executeing task

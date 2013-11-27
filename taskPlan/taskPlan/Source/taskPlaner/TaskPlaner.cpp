@@ -90,7 +90,7 @@ namespace taskPlanerNamespace
 		for(actionMapIt=actionMap.begin(); actionMapIt!=actionMap.end(); actionMapIt++)
 		{
 			actionName = actionMapIt->first;
-			apRemortController.executeActionPlaner(actionName); 
+			//apRemortController.executeActionPlaner(actionName); 
 		}
 		cout << "Waiting for action planers initialize..." << endl;
 		Sleep(initializeTime*1000);
@@ -226,19 +226,19 @@ namespace taskPlanerNamespace
 			if( TaskIpc::receiveResultMgr(timeoutOfKill, mgr)<0)			// timeout of kill action planer
 			{
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else if(mgr.apName != actionName)
 			{
 				cout << actionName << " message action name error, receive:" << mgr.apName << " " << taskPlanMsgPaser(mgr.state) << endl;
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else if(mgr.state != AP_KILL)
 			{
 				cout << actionName << " message action state error, receive:" << taskPlanMsgPaser(mgr.state) << endl;
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else
 			{
