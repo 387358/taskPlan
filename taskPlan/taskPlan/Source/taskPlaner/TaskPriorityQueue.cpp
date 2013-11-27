@@ -8,6 +8,7 @@
 #include "ToPoint.h"
 #include "Welcome.h"
 #include "Sign.h"
+#include "Calendar.h"
 
 namespace taskPlanerNamespace
 {
@@ -312,6 +313,15 @@ namespace taskPlanerNamespace
 					cout << "Do Sign" << endl;
 					//Sleep(3000);
 					taskPlanerNamespace::Sign task;
+					task.doTask();
+					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
+					pop();
+				}
+				else if(taskName=="Calendar")
+				{
+					cout << "Do Calendar" << endl;
+					//Sleep(3000);
+					taskPlanerNamespace::Calendar task;
 					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();

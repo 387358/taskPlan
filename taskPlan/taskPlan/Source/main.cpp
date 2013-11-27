@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		cin >> input;
-		tq.queueInsert(10, "Welcome", false);
+		tq.queueInsert(10, "Calendar", false);
 	}
 
 	while(1);
