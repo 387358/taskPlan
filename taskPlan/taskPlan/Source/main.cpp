@@ -36,12 +36,12 @@ int main(int argc, char *argv[])
 		case 4:
 			tq.queueInsert(10, "Sign", true);
 			break;
+		case 5:
+			tq.queueInsert(10, "CallSkype", true);
 		default:
 			break;
 		}
 	}
-
-	while(1);
 	return 0;
 }
 

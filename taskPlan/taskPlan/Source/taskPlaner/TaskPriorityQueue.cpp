@@ -8,6 +8,8 @@
 #include "ToPoint.h"
 #include "Welcome.h"
 #include "Sign.h"
+#include "Calendar.h"
+#include "CallSkype.h"
 
 namespace taskPlanerNamespace
 {
@@ -122,7 +124,7 @@ namespace taskPlanerNamespace
 					//string currentTaskName(tempQueueStruct.taskQueue.begin()->second);	
 					//bool cruuentInterruptFlag(tempQueueStruct.interruptFlag.begin()->second);
 					
-					TaskIpc::sendResultMgr("TaskPriorityQueue", ApState::AP_FAIL);	// abort current task
+					TaskIpc::sendResultMgr("TaskPriorityQueue", AP_FAIL);	// abort current task
 					cout << "The current task is aborted by higher priority task" << endl;
 					
 					pauseTaskQueue();
@@ -324,6 +326,24 @@ namespace taskPlanerNamespace
 					cout << "Do Sign" << endl;
 					//Sleep(3000);
 					taskPlanerNamespace::Sign task;
+					task.doTask();
+					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
+					pop();
+				}
+				else if(taskName=="Calendar")
+				{
+					cout << "Do Calendar" << endl;
+					//Sleep(3000);
+					taskPlanerNamespace::Calendar task;
+					task.doTask();
+					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
+					pop();
+				}
+				else if(taskName=="CallSkype")
+				{
+					cout << "Do CallSkype" << endl;
+					//Sleep(3000);
+					taskPlanerNamespace::CallSkype task;
 					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
