@@ -286,45 +286,45 @@ namespace taskPlanerNamespace
 				if(taskName=="TakeWater")
 				{
 					cout << "Do TakeWater" << endl;
-					Sleep(3000);
+					//Sleep(3000);
 					taskPlanerNamespace::TakeWater task;
-					//task.doTask();
+					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="ToPoint")
 				{
 					cout << "Do ToPoint" << endl;
-					Sleep(3000);
+					//Sleep(3000);
 					taskPlanerNamespace::ToPoint task;
-					//task.doTask();
+					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Wander")
 				{
 					cout << "Do Wander" << endl;
-					Sleep(3000);
+					//Sleep(3000);
 					taskPlanerNamespace::Wander task;
-					//task.doTask();
+					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Welcome")
 				{
 					cout << "Do Welcome" << endl;
-					Sleep(3000);
+					//Sleep(3000);
 					taskPlanerNamespace::Welcome task;
-					//task.doTask();
+					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Sign")
 				{
 					cout << "Do Sign" << endl;
-					Sleep(3000);
+					//Sleep(3000);
 					taskPlanerNamespace::Sign task;
-					//task.doTask();
+					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
