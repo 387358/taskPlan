@@ -96,16 +96,16 @@ namespace taskPlanerNamespace
 		if(tempQueueStruct.isQueueExecute==false)	// The queue is not in processing
 		{
 			push(priority, taskName, isInterrupt);
-			cout << "Insert the after the current task" << endl;
+			cout << "Insert the " << taskName << " after the current task" << endl;
 		}
 		else										// The queue is in processing
 		{
 			if(tempQueueStruct.taskQueue.empty())
 			{
-				abortCurrentTaskAndStopThread();
+				//abortCurrentTaskAndStopThread();
 				push(priority, taskName, isInterrupt);	// directly insert
-				startThread();
-				cout << "Insert the in the current empty task" << endl;
+				//startThread();
+				cout << "Insert the " << taskName << " in the current empty task" << endl;
 			}
 			else if( priority > (tempQueueStruct.taskQueue.begin()->first) ) // insert priority larger than the executeing task
 			{
@@ -120,13 +120,13 @@ namespace taskPlanerNamespace
 					abortCurrentTaskAndStopThread();
 					push(priority, taskName, isInterrupt);			// and insert new higher priority task, but did't pop originial task
 					startThread();
-					cout << "Insert the before the current task" << endl;
+					cout << "Insert the " << taskName << " before the current task" << endl;
 				}
 			}
 			else			// insert priority smaller than the executeing task
 			{
 				push(priority, taskName, isInterrupt);	// directly insert
-				cout << "Insert the after the current task" << endl;
+				cout << "Insert the " << taskName << " after the current task" << endl;
 			}	
 		}
 		return 0;
@@ -274,45 +274,45 @@ namespace taskPlanerNamespace
 				if(taskName=="TakeWater")
 				{
 					cout << "Do TakeWater" << endl;
-					//Sleep(3000);
+					Sleep(3000);
 					taskPlanerNamespace::TakeWater task;
-					task.doTask();
+					//task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="ToPoint")
 				{
 					cout << "Do ToPoint" << endl;
-					//Sleep(3000);
+					Sleep(3000);
 					taskPlanerNamespace::ToPoint task;
-					task.doTask();
+					//task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Wander")
 				{
 					cout << "Do Wander" << endl;
-					//Sleep(3000);
+					Sleep(3000);
 					taskPlanerNamespace::Wander task;
-					task.doTask();
+					//task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Welcome")
 				{
 					cout << "Do Welcome" << endl;
-					//Sleep(3000);
+					Sleep(3000);
 					taskPlanerNamespace::Welcome task;
-					task.doTask();
+					//task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
 				else if(taskName=="Sign")
 				{
 					cout << "Do Sign" << endl;
-					//Sleep(3000);
+					Sleep(3000);
 					taskPlanerNamespace::Sign task;
-					task.doTask();
+					//task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}

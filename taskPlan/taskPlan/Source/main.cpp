@@ -22,7 +22,23 @@ int main(int argc, char *argv[])
 	while(1)
 	{
 		cin >> input;
-		tq.queueInsert(10, "Welcome", false);
+		switch(input)
+		{
+		case 1:
+			tq.queueInsert(10, "Welcome", false);
+			break;
+		case 2:
+			tq.queueInsert(10, "Wander", false);
+			break;
+		case 3:
+			tq.queueInsert(20, "Sign", false);
+			break;
+		case 4:
+			tq.queueInsert(10, "TakeWater", false);
+			break;
+		default:
+			break;
+		}
 	}
 
 	while(1);
