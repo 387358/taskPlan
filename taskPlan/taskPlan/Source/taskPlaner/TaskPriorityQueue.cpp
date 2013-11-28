@@ -9,6 +9,7 @@
 #include "Welcome.h"
 #include "Sign.h"
 #include "Calendar.h"
+#include "CallSkype.h"
 
 namespace taskPlanerNamespace
 {
@@ -97,16 +98,16 @@ namespace taskPlanerNamespace
 		if(tempQueueStruct.isQueueExecute==false)	// The queue is not in processing
 		{
 			push(priority, taskName, isInterrupt);
-			cout << "Insert the after the current task" << endl;
+			cout << "Insert the " << taskName << " after the current task" << endl;
 		}
 		else										// The queue is in processing
 		{
 			if(tempQueueStruct.taskQueue.empty())
 			{
-				abortCurrentTaskAndStopThread();
+				//abortCurrentTaskAndStopThread();
 				push(priority, taskName, isInterrupt);	// directly insert
-				startThread();
-				cout << "Insert the in the current empty task" << endl;
+				//startThread();
+				cout << "Insert the " << taskName << " in the current empty task" << endl;
 			}
 			else if( priority > (tempQueueStruct.taskQueue.begin()->first) ) // insert priority larger than the executeing task
 			{
@@ -118,16 +119,28 @@ namespace taskPlanerNamespace
 				}
 				else		// if the executing task can be interrupt
 				{
-					abortCurrentTaskAndStopThread();
-					push(priority, taskName, isInterrupt);			// and insert new higher priority task, but did't pop originial task
-					startThread();
-					cout << "Insert the before the current task" << endl;
+					//abortCurrentTaskAndStopThread();
+					//int currentPriority(tempQueueStruct.taskQueue.begin()->first);				// save current task state
+					//string currentTaskName(tempQueueStruct.taskQueue.begin()->second);	
+					//bool cruuentInterruptFlag(tempQueueStruct.interruptFlag.begin()->second);
+					
+					TaskIpc::sendResultMgr("TaskPriorityQueue", AP_FAIL);	// abort current task
+					cout << "The current task is aborted by higher priority task" << endl;
+					
+					pauseTaskQueue();
+					push(priority, taskName, isInterrupt);	// and insert new higher priority task, but did't pop originial task
+					push(priority, taskName, isInterrupt);	// insert two times, because one will be pop after execute task
+
+					//push(currentPriority, currentTaskName, cruuentInterruptFlag);
+					//startThread();
+					cout << "Insert the " << taskName << " before the current task" << endl;
+					resumeTaskQueue();
 				}
 			}
 			else			// insert priority smaller than the executeing task
 			{
 				push(priority, taskName, isInterrupt);	// directly insert
-				cout << "Insert the after the current task" << endl;
+				cout << "Insert the " << taskName << " after the current task" << endl;
 			}	
 		}
 		return 0;
@@ -322,6 +335,15 @@ namespace taskPlanerNamespace
 					cout << "Do Calendar" << endl;
 					//Sleep(3000);
 					taskPlanerNamespace::Calendar task;
+					task.doTask();
+					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
+					pop();
+				}
+				else if(taskName=="CallSkype")
+				{
+					cout << "Do CallSkype" << endl;
+					//Sleep(3000);
+					taskPlanerNamespace::CallSkype task;
 					task.doTask();
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();

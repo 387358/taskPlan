@@ -96,6 +96,9 @@
     <ClCompile Include="Source\taskPlaner\TaskList.cpp" />
     <ClCompile Include="Source\taskPlaner\TaskPlaner.cpp" />
     <ClCompile Include="Source\taskPlaner\TaskPriorityQueue.cpp" />
+    <ClCompile Include="Source\taskService\Asking.cpp" />
+    <ClCompile Include="Source\taskService\Calendar.cpp" />
+    <ClCompile Include="Source\taskService\CallSkype.cpp" />
     <ClCompile Include="Source\taskService\Sign.cpp" />
     <ClCompile Include="Source\taskService\TakeWater.cpp" />
     <ClCompile Include="Source\taskService\ToPoint.cpp" />
@@ -130,6 +133,9 @@
     <ClInclude Include="Header\taskPlaner\ChuThread.h" />
     <ClInclude Include="Header\taskPlaner\TaskApRemoteCtrl.h" />
     <ClInclude Include="Header\taskPlaner\TaskPriorityQueue.h" />
+    <ClInclude Include="Header\taskService\Asking.h" />
+    <ClInclude Include="Header\taskService\Calendar.h" />
+    <ClInclude Include="Header\taskService\CallSkype.h" />
     <ClInclude Include="Header\taskService\Sign.h" />
     <ClInclude Include="Header\taskService\TakeWater.h" />
     <ClInclude Include="Header\taskService\taskServiceHeader.h" />

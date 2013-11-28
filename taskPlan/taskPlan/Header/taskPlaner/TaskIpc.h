@@ -34,7 +34,7 @@ namespace taskPlanerNamespace
 		static const int sendResultMgr(	const string& actionName, 
 										const ApState& state);
 
-		static const int TaskIpc::receiveResultMgr(const int timeThreshold, 
+		static const int receiveResultMgr(const int timeThreshold, 
 			                                Result_apStateMgr& mgr);	// busy wait
 
 		static const void setReceiveFlag(){receiveFlag = 1;};

@@ -90,11 +90,23 @@ namespace taskPlanerNamespace
 		for(actionMapIt=actionMap.begin(); actionMapIt!=actionMap.end(); actionMapIt++)
 		{
 			actionName = actionMapIt->first;
-			apRemortController.executeActionPlaner(actionName); 
+			//apRemortController.executeActionPlaner(actionName); 
 		}
 		cout << "Waiting for action planers initialize..." << endl;
-		Sleep(initializeTime*1000);
-		cout << "Action planers initialize..." << endl;
+		Result_apStateMgr mgr;
+		//TaskIpc::receiveResultMgr(initializeTime, mgr);
+		if(TaskIpc::receiveResultMgr(initializeTime, mgr)==0)	// receive the message
+		{
+			cout << "Receive message in the initial process" << endl;
+			if(mgr.state==AP_FAIL)
+			{
+				cout << "Receive AP_FAIL from: " << mgr.apName << endl;
+				finishTask();			// dircetly enter the finish process
+				return -1;
+			}
+		}
+		//Sleep(initializeTime*1000);
+		cout << "Action planners initialized" << endl;
 		return 0;
 	}
 
@@ -226,19 +238,19 @@ namespace taskPlanerNamespace
 			if( TaskIpc::receiveResultMgr(timeoutOfKill, mgr)<0)			// timeout of kill action planer
 			{
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else if(mgr.apName != actionName)
 			{
 				cout << actionName << " message action name error, receive:" << mgr.apName << " " << taskPlanMsgPaser(mgr.state) << endl;
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else if(mgr.state != AP_KILL)
 			{
 				cout << actionName << " message action state error, receive:" << taskPlanMsgPaser(mgr.state) << endl;
 				cout << "Kill " << actionName << " error, force kill" << endl;
-				apRemortController.killActionPlaner(actionName);	// remote kill
+				//apRemortController.killActionPlaner(actionName);	// remote kill
 			}
 			else
 			{
