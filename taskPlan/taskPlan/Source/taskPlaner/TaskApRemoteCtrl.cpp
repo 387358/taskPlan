@@ -59,8 +59,8 @@ namespace taskPlanerNamespace
 			psexecHost		= "\\\\192.168.11.4 ";
 			psexecUser		= "-u robot ";
 			psexecPswd		= "-p robot ";
-			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
-			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
+			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\Calendar\\Sample_Calendar\\Debug\\ ";
+			psexecProgName	= "C:\\Users\\robot\\Desktop\\\\Calendar\\Sample_Calendar\\Debug\\Sample_Calendar.exe ";
 		}
 		else if(actionName == "CallSkype")
 		{
