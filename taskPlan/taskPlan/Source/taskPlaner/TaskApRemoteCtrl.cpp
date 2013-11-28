@@ -54,6 +54,14 @@ namespace taskPlanerNamespace
 			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
 			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
 		}
+		else if(actionName == "CallSkype")
+		{
+			psexecHost		= "\\\\192.168.11.3 ";
+			psexecUser		= "-u mac ";
+			psexecPswd		= "-p mac ";
+			psexecProgDir	= "-w C:\\Users\\Mac\\Desktop\\CallSkype\\ ";
+			psexecProgName	= "C:\\Users\\Mac\\Desktop\\CallSkype\\CallSkype.exe ";
+		}
 		else if(actionName == "Calendar")
 		{
 			psexecHost		= "\\\\192.168.11.4 ";
@@ -61,14 +69,6 @@ namespace taskPlanerNamespace
 			psexecPswd		= "-p robot ";
 			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\Calendar\\Sample_Calendar\\Debug\\ ";
 			psexecProgName	= "C:\\Users\\robot\\Desktop\\\\Calendar\\Sample_Calendar\\Debug\\Sample_Calendar.exe ";
-		}
-		else if(actionName == "CallSkype")
-		{
-			psexecHost		= "\\\\192.168.11.4 ";
-			psexecUser		= "-u robot ";
-			psexecPswd		= "-p robot ";
-			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
-			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
 		}
 		else if(actionName == "Asking")
 		{
@@ -155,9 +155,9 @@ namespace taskPlanerNamespace
 		}
 		else if(actionName == "CallSkype")
 		{
-			pskillHost		= "\\\\192.168.11.4 ";
-			pskillUser		= "-u robot ";
-			pskillPswd		= "-p robot ";
+			pskillHost		= "\\\\192.168.11.3 ";
+			pskillUser		= "-u mac ";
+			pskillPswd		= "-p mac ";
 			pskillProgName	= "CallSkype.exe ";
 		}
 		else if(actionName == "Asking")

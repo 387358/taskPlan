@@ -26,15 +26,26 @@ int main(int argc, char *argv[])
 	string actionName;
 	bool interrput;
 
+	TaskIpc::conncetServer();
+
 	while(1)
 	{
-		TaskIpc::receiveStateMgr(INT_MAX, mgr);
-		ss.str(mgr.status);
+
+		/* Debug	*/
+		cin >> priority;
+		command = "insert";
+		priority = 10;
+		actionName = "CallSkype";
+		interrput = false;
+		/* Debug	*/
+		
+		//TaskIpc::receiveStateMgr(INT_MAX, mgr);
+		//ss.str(mgr.status);
 		/*	State mgr parser	*/
-		ss >> command;
-		ss >> priority;
-		ss >> actionName;
-		ss >> interrput;
+		//ss >> command;
+		//ss >> priority;
+		//ss >> actionName;
+		//ss >> interrput;
 
 		cout << "command: " << command << endl;
 		cout << "priority: " << priority << endl;
