@@ -37,6 +37,9 @@ namespace taskPlanerNamespace
 		static const int receiveResultMgr(const int timeThreshold, 
 			                                Result_apStateMgr& mgr);	// busy wait
 
+		static const int receiveStateMgr(const int timeThreshold, 
+			                                StateMgr& mgr);	// busy wait
+
 		static const void setReceiveFlag(){receiveFlag = 1;};
 	
 

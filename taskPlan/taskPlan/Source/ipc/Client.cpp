@@ -124,6 +124,8 @@ void state_message_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData, void *clien
 	IPC_unmarshallData(IPC_msgInstanceFormatter(msgRef), callData, &data, sizeof(StateMgr));
 	setState( data );
 	IPC_freeByteArray(callData);
+	/**/
+	taskPlanerNamespace::TaskIpc::setReceiveFlag(); 
 }
 
 void goal_message_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData, void *clientData)

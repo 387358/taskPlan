@@ -48,7 +48,7 @@ namespace taskPlanerNamespace
 			init_comm();
 			connect_to_server("localhost");
 			publish( ACTION_APSTATE, RESULT_APSTATE, TOTAL_MSG_NUM);
-			subscribe( RESULT_APSTATE, TOTAL_MSG_NUM );
+			subscribe( RESULT_APSTATE, STATE, TOTAL_MSG_NUM );
 			listen();
 		}
 
@@ -117,6 +117,39 @@ namespace taskPlanerNamespace
 			{
 				cout << "receive message" << endl;
 				getResult_apState(mgr);
+				return 0;
+			}
+			Sleep(100);
+			currentTime = time(NULL);
+		}
+
+		cout << "receive timeout" << endl;
+		return -1;
+	}
+
+	const int TaskIpc::receiveStateMgr(const int timeThreshold, 
+		                                StateMgr& mgr)
+	{
+		int startTime;
+		int currentTime;
+
+		// initialize
+		if(receiveFlag!=0)
+			receiveFlag = 0;
+
+		if(connectFlag==0)
+			conncetServer();
+
+		startTime = time(NULL);
+		currentTime = time(NULL);
+	
+		// busy wait
+		while(currentTime - startTime < timeThreshold)
+		{
+			if(receiveFlag==1)
+			{
+				cout << "receive message" << endl;
+				getState(mgr);
 				return 0;
 			}
 			Sleep(100);

@@ -1,12 +1,14 @@
 ﻿
 #include <iostream>
 #include <vector>
+#include <sstream>
 
 #include <QtGui/QApplication>
 
 #include "TaskPriorityQueue.h"
 #include "taskServiceHeader.h"
-
+#include "TaskIpc.h"
+#include "Client.h"
 
 int main(int argc, char *argv[])
 {
@@ -16,34 +18,49 @@ int main(int argc, char *argv[])
 	TaskPriorityQueue tq;
 	tq.executeTaskQueue();
 
-	int input;
+	StateMgr mgr;
+	stringstream ss;
+
+	string command;
+	int priority;
+	string actionName;
+	bool interrput;
+
 	while(1)
 	{
-		cin >> input;
-		switch(input)
+		TaskIpc::receiveStateMgr(INT_MAX, mgr);
+		ss.str(mgr.status);
+		/*	State mgr parser	*/
+		ss >> command;
+		ss >> priority;
+		ss >> actionName;
+		ss >> interrput;
+
+		cout << "command: " << command << endl;
+		cout << "priority: " << priority << endl;
+		cout << "actionName: " << actionName << endl;
+		cout << "interrput: " << interrput << endl;
+
+		if(command=="insert")
 		{
-		case 1:
-			tq.queueInsert(10, "Welcome", true);
-			break;
-		case 2:
-			tq.queueInsert(5, "Wander", true);
-			break;
-		case 3:
-			tq.queueInsert(20, "TakeWater", true);
-			break;
-		case 4:
-			tq.queueInsert(10, "Sign", true);
-			break;
-		case 5:
-			tq.queueInsert(10, "Asking", true);
-			break;
-		case 6:
-			tq.queueInsert(10, "CallSkype", true);
-			break;
-		case 7:
-			tq.queueInsert(10, "Calendar", true);
-		default:
-			break;
+			if(actionName=="Welcome")
+				tq.queueInsert(priority, "Welcome", interrput);
+			else if(actionName=="Wander")
+				tq.queueInsert(priority, "Wander", interrput);
+			else if(actionName=="TakeWater")
+				tq.queueInsert(priority, "TakeWater", interrput);
+			else if(actionName=="Sign")
+				tq.queueInsert(priority, "Sign", interrput);
+			else if(actionName=="Asking")
+				tq.queueInsert(priority, "Asking", interrput);
+			else if(actionName=="CallSkype")
+				tq.queueInsert(priority, "CallSkype", interrput);
+			else if(actionName=="Calendar")
+				tq.queueInsert(priority, "Calendar", interrput);
+			else
+			{
+				cout << "Error state message" << endl;
+			}
 		}
 	}
 	return 0;
