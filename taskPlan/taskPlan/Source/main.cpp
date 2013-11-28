@@ -14,8 +14,6 @@ int main(int argc, char *argv[])
 	using namespace taskPlanerNamespace;
 
 	TaskPriorityQueue tq;
-	//tq.queueInsert(10, "Welcome", false);
-	//tq.queueInsert(10, "Sign", false);
 	tq.executeTaskQueue();
 
 	int input;
@@ -37,7 +35,13 @@ int main(int argc, char *argv[])
 			tq.queueInsert(10, "Sign", true);
 			break;
 		case 5:
+			tq.queueInsert(10, "Asking", true);
+			break;
+		case 6:
 			tq.queueInsert(10, "CallSkype", true);
+			break;
+		case 7:
+			tq.queueInsert(10, "Calendar", true);
 		default:
 			break;
 		}
