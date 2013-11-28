@@ -113,6 +113,9 @@
     <ClCompile Include="Source\taskService\CallSkype.cpp">
       <Filter>Source Files\taskService</Filter>
     </ClCompile>
+    <ClCompile Include="Source\taskService\Asking.cpp">
+      <Filter>Source Files\taskService</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="taskGUI.ui">
@@ -196,6 +199,9 @@
       <Filter>Header Files\taskService</Filter>
     </ClInclude>
     <ClInclude Include="Header\taskService\CallSkype.h">
+      <Filter>Header Files\taskService</Filter>
+    </ClInclude>
+    <ClInclude Include="Header\taskService\Asking.h">
       <Filter>Header Files\taskService</Filter>
     </ClInclude>
   </ItemGroup>
