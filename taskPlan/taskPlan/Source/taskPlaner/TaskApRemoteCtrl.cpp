@@ -70,6 +70,14 @@ namespace taskPlanerNamespace
 			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
 			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
 		}
+		else if(actionName == "Asking")
+		{
+			psexecHost		= "\\\\192.168.11.4 ";
+			psexecUser		= "-u robot ";
+			psexecPswd		= "-p robot ";
+			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
+			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
+		}
 		else
 		{
 			cout << "Wrong Action name:" <<  actionName << endl;
@@ -150,7 +158,14 @@ namespace taskPlanerNamespace
 			pskillHost		= "\\\\192.168.11.4 ";
 			pskillUser		= "-u robot ";
 			pskillPswd		= "-p robot ";
-			pskillProgName	= "Calendar.exe ";
+			pskillProgName	= "CallSkype.exe ";
+		}
+		else if(actionName == "Asking")
+		{
+			pskillHost		= "\\\\192.168.11.4 ";
+			pskillUser		= "-u robot ";
+			pskillPswd		= "-p robot ";
+			pskillProgName	= "Asking.exe ";
 		}
 		else
 		{

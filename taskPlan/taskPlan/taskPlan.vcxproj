@@ -73,7 +73,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Calendar.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_TaskGUI.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -119,7 +118,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Calendar.h" />
     <ClInclude Include="GeneratedFiles\ui_taskGUI.h" />
     <ClInclude Include="Header\ipc\Client.h" />
     <ClInclude Include="Header\ipc\Comm.h" />

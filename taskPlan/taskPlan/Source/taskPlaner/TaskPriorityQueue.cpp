@@ -10,6 +10,7 @@
 #include "Sign.h"
 #include "Calendar.h"
 #include "CallSkype.h"
+#include "Asking.h"
 
 namespace taskPlanerNamespace
 {
@@ -348,8 +349,20 @@ namespace taskPlanerNamespace
 					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
 					pop();
 				}
+				else if(taskName=="Asking")
+				{
+					cout << "Do Asking" << endl;
+					//Sleep(3000);
+					taskPlanerNamespace::Asking task;
+					task.doTask();
+					while(getShareVariable().isQueuePause==true){Sleep(200);} // check the queue is pause or not
+					pop();
+				}
 				else
+				{
 					cout << "taskName error: " << taskName << endl;
+					pop();
+				}
 			}
 			else
 			{
