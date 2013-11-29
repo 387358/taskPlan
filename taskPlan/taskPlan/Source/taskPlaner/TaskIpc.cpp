@@ -13,6 +13,7 @@ namespace taskPlanerNamespace
 
 	//HANDLE TaskIpc::mutex = CreateMutex( NULL, FALSE, NULL);    
 	short TaskIpc::receiveFlag = 0;
+	short TaskIpc::receiveStateFlag = 0;
 	short TaskIpc::connectFlag = 0;
 
 	/*TaskIpc::TaskIpc(string serverName)
@@ -134,8 +135,8 @@ namespace taskPlanerNamespace
 		int currentTime;
 
 		// initialize
-		if(receiveFlag!=0)
-			receiveFlag = 0;
+		if(receiveStateFlag!=0)
+			receiveStateFlag = 0;
 
 		if(connectFlag==0)
 			conncetServer();
@@ -146,7 +147,7 @@ namespace taskPlanerNamespace
 		// busy wait
 		while(currentTime - startTime < timeThreshold)
 		{
-			if(receiveFlag==1)
+			if(receiveStateFlag==1)
 			{
 				cout << "receive message" << endl;
 				getState(mgr);

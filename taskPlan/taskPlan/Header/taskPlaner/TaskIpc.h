@@ -41,6 +41,8 @@ namespace taskPlanerNamespace
 			                                StateMgr& mgr);	// busy wait
 
 		static const void setReceiveFlag(){receiveFlag = 1;};
+
+		static const void setReceiveStateFlag(){receiveStateFlag = 1;};
 	
 
 		//static const void mutexLock(){WaitForSingleObject(mutex, INFINITE);};
@@ -54,6 +56,7 @@ namespace taskPlanerNamespace
 		//static HANDLE mutex;
 		string server;
 		static short receiveFlag;
+		static short receiveStateFlag;
 		static short connectFlag;
 
 

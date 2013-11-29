@@ -125,7 +125,7 @@ void state_message_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData, void *clien
 	setState( data );
 	IPC_freeByteArray(callData);
 	/**/
-	taskPlanerNamespace::TaskIpc::setReceiveFlag(); 
+	taskPlanerNamespace::TaskIpc::setReceiveStateFlag(); 
 }
 
 void goal_message_handler(MSG_INSTANCE msgRef, BYTE_ARRAY callData, void *clientData)

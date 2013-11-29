@@ -32,20 +32,20 @@ int main(int argc, char *argv[])
 	{
 
 		/* Debug	*/
-		cin >> priority;
+		/*cin >> priority;
 		command = "insert";
 		priority = 10;
 		actionName = "CallSkype";
-		interrput = false;
+		interrput = false;*/
 		/* Debug	*/
 		
-		//TaskIpc::receiveStateMgr(INT_MAX, mgr);
-		//ss.str(mgr.status);
+		TaskIpc::receiveStateMgr(INT_MAX, mgr);
+		ss.str(mgr.status);
 		/*	State mgr parser	*/
-		//ss >> command;
-		//ss >> priority;
-		//ss >> actionName;
-		//ss >> interrput;
+		ss >> command;
+		ss >> priority;
+		ss >> actionName;
+		ss >> interrput;
 
 		cout << "command: " << command << endl;
 		cout << "priority: " << priority << endl;

@@ -75,8 +75,8 @@ namespace taskPlanerNamespace
 			psexecHost		= "\\\\192.168.11.4 ";
 			psexecUser		= "-u robot ";
 			psexecPswd		= "-p robot ";
-			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\ ";
-			psexecProgName	= "C:\\Users\\robot\\Desktop\\MakingService\\MakingService\\Debug\\MakingService.exe ";
+			psexecProgDir	= "-w C:\\Users\\robot\\Desktop\\ActionPlanner_Asking_1128\\Asking\\Debug\\ ";
+			psexecProgName	= "C:\\Users\\robot\\Desktop\\ActionPlanner_Asking_1128\\Asking\\Debug\\Asking.exe ";
 		}
 		else
 		{
